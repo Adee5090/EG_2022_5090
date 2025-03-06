@@ -36,19 +36,23 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-                <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                <button type="submit">Login</button>
-            </form>
-            <p className="login-message">{message}</p>
-            <button className="login-toggle-btn" onClick={() => navigate("/register")}>
-                Don't have an account? Register
-            </button>
-        </div>
+        <>
+            <div className="background"></div> {/* Blurred Background */}
+            <div className="login-container">
+                <h2>Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+                    <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+                    <button type="submit">Login</button>
+                </form>
+                <p className="login-message">{message}</p>
+                <button className="login-toggle-btn" onClick={() => navigate("/register")}>
+                    Don't have an account? Register
+                </button>
+            </div>
+        </>
     );
+    
 };
 
 export default Login;

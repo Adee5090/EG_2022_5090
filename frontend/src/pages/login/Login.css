@@ -1,53 +1,104 @@
+/* Full-screen blurred background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../../../public/1.jpg") no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(6px); /* Blur effect */
+    z-index: -1; /* Keeps it behind everything */
+}
+
+/* Centering and layout */
 .login-container {
-    width: 300px;
-    margin: auto;
-    padding: 20px;
+    max-width: 380px;
+    margin: 80px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
-    background: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1; /* Keeps form above the blurred background */
 }
 
+/* Heading */
 .login-container h2 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: #333;
+    font-size: 24px;
+    font-weight: 600;
 }
 
+/* Form Styling */
 .login-container form {
     display: flex;
     flex-direction: column;
 }
 
 .login-container input {
-    margin: 8px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Input focus effect */
+.login-container input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* Button Styling */
 .login-container button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #007bff;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
+    font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 .login-container button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #0056b3, #003d80);
 }
 
+/* Error message styling */
 .login-message {
     color: red;
+    font-size: 14px;
     margin-top: 10px;
+    font-weight: 500;
 }
 
+/* Register button */
 .login-toggle-btn {
     margin-top: 15px;
     background: none;
     border: none;
     color: #007bff;
+    font-size: 14px;
     cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.login-toggle-btn:hover {
+    color: #0056b3;
 }

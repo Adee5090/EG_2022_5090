@@ -34,6 +34,7 @@ const Register = () => {
 
     return (
         <div className="register-container">
+            <div className="background"></div> {/* Blurred Background */}
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="phone" placeholder="Phone" onChange={handleChange} required />
