@@ -1,0 +1,155 @@
+/* Full page container */
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f8f9fa;
+    padding: 20px;
+}
+
+/* Content wrapper for profile & PDFs */
+.content {
+    display: flex;
+    gap: 20px;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Card style */
+.profile-card, .pdf-card {
+    background: white;
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.profile-card:hover, .pdf-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Avatar styling */
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    font-weight: bold;
+}
+
+/* User info */
+h3 {
+    margin: 10px 0 5px;
+    color: #333;
+    font-size: 20px;
+}
+
+.email {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* User details */
+.details p {
+    font-size: 16px;
+    color: #444;
+    margin: 5px 0;
+}
+
+/* Role badges */
+.role {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.role.admin {
+    background: #dc3545;
+    color: white;
+}
+
+.role.user {
+    background: #28a745;
+    color: white;
+}
+
+/* Logout button */
+.logout-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.logout-btn:hover {
+    background: #b52a36;
+}
+
+/* PDF Card */
+.pdf-card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.pdf-card .no-pdfs {
+    color: #888;
+}
+
+/* PDF List */
+.pdf-list {
+    list-style: none;
+    padding: 0;
+}
+
+.pdf-list li {
+    background: #f9f9f9;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.pdf-list li:hover {
+    background: #e0e0e0;
+}
+
+.pdf-list a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: block;
+}
+
+.pdf-list a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .profile-card, .pdf-card {
+        width: 100%;
+    }
+}

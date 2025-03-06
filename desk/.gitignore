@@ -1,0 +1,69 @@
+# Ignore Visual Studio user-specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build outputs
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.ilk
+*.log
+*.ncb
+*.sdf
+*.sln.ide
+*.suo
+*.tlog
+*.tmp
+*.vcxproj.user
+*.csproj.user
+
+# Ignore NuGet packages
+packages/
+*.nupkg
+# Include NuGet restore log
+!packages/repositories.config
+
+# Ignore application data
+app.config
+appsettings.json
+appsettings.Development.json
+secrets.json
+
+# Ignore Rider and JetBrains files
+.idea/
+*.sln.iml
+
+# Ignore publish outputs
+publish/
+
+# Ignore Windows thumbnail cache
+Thumbs.db
+Desktop.ini
+
+# Ignore Recycle Bin used on Windows
+$RECYCLE.BIN/
+
+# Ignore Logs and Debugging output
+*.tlog
+*.log
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore unnecessary file backups
+*.bak
+*.orig
+
+# Ignore generated files
+GeneratedFiles/
+ServiceFabricBackup/
+
+# Ignore Resharper files
+_ReSharper*/
