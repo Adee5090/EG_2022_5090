@@ -20,10 +20,10 @@ const SECRET_KEY = "hsdhsdjsdoljsdkjolsdj"; // Change this to a strong secret ke
 
 // MySQL Database Connection
 const db = mysql.createConnection({
-    host: 'ewinners.lk',
-    user: 'ewinners_adisha',
-    password: 'adisha20715###', // Change as per your MySQL setup
-    database: 'ewinners_gui', // Change as per your MySQL setup
+    host: 'localhost',
+    user: 'root',
+    password: '', // Change as per your MySQL setup
+    database: 'gui', // Change as per your MySQL setup
 });
 
 db.connect(err => {

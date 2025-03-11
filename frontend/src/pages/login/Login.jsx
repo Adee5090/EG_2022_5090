@@ -37,7 +37,7 @@ const Login = () => {
 
     return (
         <>
-            <div className="background"></div> {/* Blurred Background */}
+            <div className="background"></div>
             <div className="login-container">
                 <h2>Login</h2>
                 <form onSubmit={handleSubmit}>

@@ -46,50 +46,58 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="dashboard-container">
-            <div className="content">
-                {/* Profile Section */}
-                <div className="profile-card">
-                    <h2>User Dashboard</h2>
-                    {user ? (
-                        <div className="user-info">
-                            <div className="avatar">{user.first_name.charAt(0)}</div>
-                            <h3>{user.first_name} {user.last_name}</h3>
-                            <p className="email">{user.email}</p>
-                            <div className="details">
-                                <p><strong>📞 Phone:</strong> {user.phone}</p>
-                                <p><strong>🆔 NIC:</strong> {user.nic}</p>
-                                <p><strong>🏠 Address:</strong> {user.adress}</p>
-                                <p className={`role ${user.type === "admin" ? "admin" : "user"}`}>
-                                    {user.type.toUpperCase()}
-                                </p>
-                            </div>
-                            <button className="logout-btn" onClick={handleLogout}>Logout</button>
-                        </div>
-                    ) : (
-                        <p>Loading user data...</p>
-                    )}
-                </div>
+        <>
+            <div className="background"></div> {/* Blurred Background */}
 
-                {/* PDF Section */}
-                <div className="pdf-card">
-                    <h3>Available PDFs</h3>
-                    {pdfs.length === 0 ? (
-                        <p className="no-pdfs">No PDFs available.</p>
-                    ) : (
-                        <ul className="pdf-list">
-                            {pdfs.map((pdf) => (
-                                <li key={pdf.pdf_id}>
-                                    <a href={pdf.url} target="_blank" rel="noopener noreferrer">
-                                        📄 {pdf.title}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+            <div className="title">
+                <h1>User Management System</h1>
+            </div>
+
+            <div className="dashboard-container">
+                <div className="content">
+                    {/* Profile Section */}
+                    <div className="profile-card">
+                        <h2>User Dashboard</h2>
+                        {user ? (
+                            <div className="user-info">
+                                <div className="avatar">{user.first_name.charAt(0)}</div>
+                                <h3>{user.first_name} {user.last_name}</h3>
+                                <p className="email">{user.email}</p>
+                                <div className="details">
+                                    <p><strong>📞 Phone:</strong> {user.phone}</p>
+                                    <p><strong>🆔 NIC:</strong> {user.nic}</p>
+                                    <p><strong>🏠 Address:</strong> {user.adress}</p>
+                                    <p className={`role ${user.type === "admin" ? "admin" : "user"}`}>
+                                        {user.type.toUpperCase()}
+                                    </p>
+                                </div>
+                                <button className="logout-btn" onClick={handleLogout}>Logout</button>
+                            </div>
+                        ) : (
+                            <p>Loading user data...</p>
+                        )}
+                    </div>
+
+                    {/* PDF Section */}
+                    <div className="pdf-card">
+                        <h3>Available PDFs</h3>
+                        {pdfs.length === 0 ? (
+                            <p className="no-pdfs">No PDFs available.</p>
+                        ) : (
+                            <ul className="pdf-list">
+                                {pdfs.map((pdf) => (
+                                    <li key={pdf.pdf_id}>
+                                        <a href={pdf.url} target="_blank" rel="noopener noreferrer">
+                                            📄 {pdf.title}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

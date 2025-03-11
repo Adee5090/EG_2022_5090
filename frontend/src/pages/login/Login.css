@@ -13,8 +13,8 @@ body {
     height: 100%;
     background: url("../../../public/1.jpg") no-repeat center center fixed;
     background-size: cover;
-    filter: blur(6px); /* Blur effect */
-    z-index: -1; /* Keeps it behind everything */
+    filter: blur(6px);
+    z-index: -1; 
 }
 
 /* Centering and layout */
