@@ -1,27 +1,10 @@
 /* Full page container */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("../../../public/1.jpg");
-    background-size: cover;
-    filter: blur(6px);
-    z-index: -1; 
-}
-.title{
-    text-align: center;
-    margin-top: 70px;
-    color: #ffffff;
-    font-size: 2rem;
-}
 .dashboard-container {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     min-height: 100vh;
-    /* background: #f8f9fa; */
+    background: #f8f9fa;
     padding: 20px;
 }
 
@@ -31,7 +14,6 @@
     gap: 20px;
     max-width: 900px;
     width: 100%;
-    height: fit-content;
 }
 
 /* Card style */
@@ -77,6 +59,13 @@ h3 {
     margin-bottom: 10px;
 }
 
+.details{
+    text-align: right;
+}
+
+.first-col{
+    text-align: left;
+}
 /* User details */
 .details p {
     font-size: 16px;
@@ -105,11 +94,9 @@ h3 {
 }
 
 /* Logout button */
-.logout-btn {
+.logout-btn , .dashboard-container .edit-btn{
     margin-top: 15px;
     padding: 10px 15px;
-    background: #dc3545;
-    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -117,7 +104,14 @@ h3 {
     transition: 0.3s;
     width: 100%;
 }
-
+.logout-btn{
+    background: #dc3545;
+    color: white;
+}
+.dashboard-container .edit-btn{
+    background: #2dc3e9;
+    color: rgb(0, 0, 0);
+}
 .logout-btn:hover {
     background: #b52a36;
 }

@@ -7,6 +7,7 @@ const cors = require('cors');
 require('dotenv').config();
 const morgan = require('morgan');
 const multer = require("multer");
+const createHttpError = require("http-errors");
 const path = require("path");
 const fs = require("fs");
 
@@ -20,10 +21,10 @@ const SECRET_KEY = "hsdhsdjsdoljsdkjolsdj"; // Change this to a strong secret ke
 
 // MySQL Database Connection
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '', // Change as per your MySQL setup
-    database: 'gui', // Change as per your MySQL setup
+    host: 'ewinners.lk',
+    user: 'ewinners_adisha',
+    password: 'adisha20715###', 
+    database: 'ewinners_gui', 
 });
 
 db.connect(err => {
@@ -116,6 +117,25 @@ const authenticateToken = (req, res, next) => {
         res.status(400).json({ message: "Invalid Token" });
     }
 };
+
+//edit user
+
+app.put('/user/edit', authenticateToken, (req, res) => {
+    const { first_name, last_name, phone, nic, email, adress } = req.body;
+
+    const token = req.headers['authorization'];
+    const decodedData = jwt.verify(token, SECRET_KEY);
+    const userId = decodedData.user_id;
+
+    const sql = "UPDATE users SET first_name = ?, last_name = ?, phone = ?, adress = ? WHERE user_id = ?";
+    db.query(sql, [first_name, last_name, phone, adress, userId], (err) => {
+        if (err) {
+            console.error("Error updating user:", err);
+            return res.status(500).json({ message: "Database error" });
+        }
+        res.json({ message: "User updated successfully" });
+    });
+});
 
 // Fetch logged-in user's own data
 app.get('/user/me', authenticateToken, (req, res) => {
@@ -270,6 +290,32 @@ app.get("/admin/pdf-count", authenticateToken, isAdmin, (req, res) => {
         }
         res.json({ count: result[0].count });
     });
+});
+
+// video upload
+app.post("/admin/upload-video", authenticateToken, isAdmin, upload.single("video"), (req, res, next) => {
+    try {
+        const { videoID, title } = req.body;
+    
+        if (!videoID || !title) { // Fixed variable name
+            return next(createHttpError.BadRequest("Missing required fields"));
+        }
+    
+        const q = "INSERT INTO videos (videoId, title) VALUES (?,?)";
+        db.query(q, [videoID, title], (err, data) => {
+            if (err) {
+                console.error(err);
+                return next(createHttpError.InternalServerError("Failed to insert video data"));
+            }
+            res.status(201).json({
+                message: "Video uploaded successfully",
+                lesson_id: data.insertId, // lesson_id is correctly returned
+            });
+        });
+    } catch (error) {
+        console.error(error);
+        next(createHttpError.InternalServerError("Something went wrong"));
+    }
 });
 
 

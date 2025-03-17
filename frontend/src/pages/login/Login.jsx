@@ -37,7 +37,7 @@ const Login = () => {
 
     return (
         <>
-            <div className="background"></div>
+            <div className="background"></div> {/* Blurred Background */}
             <div className="login-container">
                 <h2>Login</h2>
                 <form onSubmit={handleSubmit}>
@@ -46,6 +46,7 @@ const Login = () => {
                     <button type="submit">Login</button>
                 </form>
                 <p className="login-message">{message}</p>
+               
                 <button className="login-toggle-btn" onClick={() => navigate("/register")}>
                     Don't have an account? Register
                 </button>

@@ -5,7 +5,19 @@
     text-align: center;
     padding-bottom: 50px;
 }
-
+.admin-dashboard .log-out{
+    width: 100%;
+    /* border: 1px solid  red; */
+}
+.admin-dashboard nav button{
+    float: right;
+    color: #ccc;
+    padding: 8px 13px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 h2 {
     margin-bottom: 20px;
 }

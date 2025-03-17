@@ -30,8 +30,16 @@ const AdminDashboard = () => {
         fetchUsers();
     }, [navigate]);
 
+    const handleLogout = ()=>{
+        localStorage.removeItem("token");
+        navigate('/');
+    }
+
     return (
         <div className="admin-dashboard">
+            <nav className="log-out">
+                <button onClick={handleLogout} >Log Out</button>
+            </nav>
             <h2>Admin Dashboard</h2>
 
             {/* Include Stats Cards */}
